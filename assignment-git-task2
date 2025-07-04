@@ -1,0 +1,121 @@
+task2 
+
+q2 Ans ) -------------------------------------------------------
+
+kunal@kunal:~/github/git-github/assignment$ cd  ~/github/git-github/task2
+kunal@kunal:~/github/git-github/task2$ ls
+kunal@kunal:~/github/git-github/task2$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/kunal/github/git-github/task2/.git/
+kunal@kunal:~/github/git-github/task2$ git branch
+kunal@kunal:~/github/git-github/task2$ touch feature{1..2}.txt
+kunal@kunal:~/github/git-github/task2$ git add . ; git commit -m 'feature1.txt feature2.txt added'
+[master (root-commit) b89a579] feature1.txt feature2.txt added
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 feature1.txt
+ create mode 100644 feature2.txt
+kunal@kunal:~/github/git-github/task2$ git branch ; git log --oneline
+* master
+b89a579 (HEAD -> master) feature1.txt feature2.txt added
+kunal@kunal:~/github/git-github/task2$ git branch feature1
+kunal@kunal:~/github/git-github/task2$ git branch feature2
+kunal@kunal:~/github/git-github/task2$ git checkout -b develop
+Switched to a new branch 'develop'
+kunal@kunal:~/github/git-github/task2$ git branch
+* develop
+  feature1
+  feature2
+  master
+kunal@kunal:~/github/git-github/task2$ echo "This is a test" > develop.txt
+kunal@kunal:~/github/git-github/task2$ git status
+On branch develop
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	develop.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+kunal@kunal:~/github/git-github/task2$ ls
+develop.txt  feature1.txt  feature2.txt
+kunal@kunal:~/github/git-github/task2$ git stash push --include-untracked -m "stash untracked develop.txt"
+Saved working directory and index state On develop: stash untracked develop.txt
+kunal@kunal:~/github/git-github/task2$ ls
+feature1.txt  feature2.txt
+kunal@kunal:~/github/git-github/task2$ git stash list
+stash@{0}: On develop: stash untracked develop.txt
+kunal@kunal:~/github/git-github/task2$ git show stash@{0}
+commit 47328190d8d454a11d3fc8aff6ea9b77dbf03c00 (refs/stash)
+Merge: b89a579 ebccc63 28219a2
+Author: kunalrout45 <kunalrout2003@gmail.com>
+Date:   Fri Jul 4 16:46:17 2025 +0530
+
+    On develop: stash untracked develop.txt
+
+kunal@kunal:~/github/git-github/task2$ git cat-file -p 4732819
+tree 85379b42a55234b21ddaaff53d4d49e1f6da5330
+parent b89a57987e0761e550f5cf2d36ffd1fec7570f50
+parent ebccc630d336fb5eab811a940282e77f69f6dc24
+parent 28219a2f5e33d0162294c17fd553f2c37b29895a
+author kunalrout45 <kunalrout2003@gmail.com> 1751627777 +0530
+committer kunalrout45 <kunalrout2003@gmail.com> 1751627777 +0530
+
+On develop: stash untracked develop.txtkunal@kunal:~/github/git-github/task2$ git cat-file -t 28219a2
+commit
+kunal@kunal:~/github/git-github/task2$ git cat-file -p 28219a2
+tree 8cb64ae882d861774f4475ed4f1fc737f4c0af51
+author kunalrout45 <kunalrout2003@gmail.com> 1751627777 +0530
+committer kunalrout45 <kunalrout2003@gmail.com> 1751627777 +0530
+
+untracked files on develop: b89a579 feature1.txt feature2.txt added
+kunal@kunal:~/github/git-github/task2$ git cat-file -p 8cb64ae
+100644 blob 0527e6bd2d76b45e2933183f1b506c7ac49f5872	develop.txt
+kunal@kunal:~/github/git-github/task2$ git checkout feature1
+Switched to branch 'feature1'
+kunal@kunal:~/github/git-github/task2$ git branch
+  develop
+* feature1
+  feature2
+  master
+kunal@kunal:~/github/git-github/task2$ touch new.txt; git status
+On branch feature1
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	new.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+kunal@kunal:~/github/git-github/task2$ git add . ; git commit -m 'new.txt committed to feature1'
+[feature1 1574ce4] new.txt committed to feature1
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 new.txt
+kunal@kunal:~/github/git-github/task2$ git log --oneline
+1574ce4 (HEAD -> feature1) new.txt committed to feature1
+b89a579 (master, feature2, develop) feature1.txt feature2.txt added
+kunal@kunal:~/github/git-github/task2$ git checkout develop
+Switched to branch 'develop'
+kunal@kunal:~/github/git-github/task2$ git stash pop 
+Already up to date.
+On branch feature1
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	develop.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+Dropped refs/stash@{0} (47328190d8d454a11d3fc8aff6ea9b77dbf03c00)
+kunal@kunal:~/github/git-github/task2$ git add develop.txt;git commit -m 'comittedvdevelop.txt'
+On branch develop
+nothing to commit, working tree clean
+[develop bbe1946] comittedvdevelop.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 develop.txt
+kunal@kunal:~/github/git-github/task2$ git log --oneline
+bbe1946 (HEAD -> develop) comittedvdevelop.txt
+b89a579 (master, feature2) feature1.txt feature2.txt added
+
