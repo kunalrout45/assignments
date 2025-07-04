@@ -1,0 +1,89 @@
+Task1
+
+q1 Ans )--------------------------------------
+#repo link -->  https://github.com/kunalrout45/git-github-task1
+
+kunal@kunal:~/github/git-github/task1$ touch Code.txt log.txt Output.txt
+kunal@kunal:~/github/git-github/task1$ ls
+Code.txt  log.txt  Output.txt
+kunal@kunal:~/github/git-github/task1$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/kunal/github/git-github/task1/.git/
+kunal@kunal:~/github/git-github/task1$ git status 
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	Code.txt
+	Output.txt
+	log.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+kunal@kunal:~/github/git-github/task1$ git add Code.txt Output.txt
+kunal@kunal:~/github/git-github/task1$ git status 
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   Code.txt
+	new file:   Output.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	log.txt
+
+kunal@kunal:~/github/git-github/task1$ git commit -m 'Code.txt and Output.txt comitted'
+[master (root-commit) 8169299] Code.txt and Output.txt comitted
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Code.txt
+ create mode 100644 Output.txt
+kunal@kunal:~/github/git-github/task1$ git log --oneline
+8169299 (HEAD -> master) Code.txt and Output.txt comitted
+kunal@kunal:~/github/git-github/task1$ git remote add origin git@github.com:kunalrout45/git-github-assignment.git
+kunal@kunal:~/github/git-github/task1$ git remote -v
+origin	git@github.com:kunalrout45/git-github-assignment.git (fetch)
+origin	git@github.com:kunalrout45/git-github-assignment.git (push)
+kunal@kunal:~/github/git-github/task1$ git branch
+* master
+kunal@kunal:~/github/git-github/task1$ git branch -M main
+kunal@kunal:~/github/git-github/task1$ git branch
+* main
+kunal@kunal:~/github/git-github/task1$ git push -u origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 236 bytes | 236.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:kunalrout45/git-github-assignment.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+kunal@kunal:~/github/git-github/task1$ git remote -v
+origin	git@github.com:kunalrout45/git-github-assignment.git (fetch)
+origin	git@github.com:kunalrout45/git-github-assignment.git (push)
+kunal@kunal:~/github/git-github/task1$ git remote set-url  origin git@github.com:kunalrout45/git-github-assignment.git
+kunal@kunal:~/github/git-github/task1$ git remote -v
+origin	git@github.com:kunalrout45/git-github-assignment.git (fetch)
+origin	git@github.com:kunalrout45/git-github-assignment.git (push)
+kunal@kunal:~/github/git-github/task1$ git remote set-url origin git@github.com:kunalrout45/git-github-assignment.git
+kunal@kunal:~/github/git-github/task1$ git remote -v
+origin	git@github.com:kunalrout45/git-github-assignment.git (fetch)
+origin	git@github.com:kunalrout45/git-github-assignment.git (push)
+kunal@kunal:~/github/git-github/task1$ git remote set-url origin git@github.com:kunalrout45/git-github-task1.git
+kunal@kunal:~/github/git-github/task1$ git remote -v
+origin	git@github.com:kunalrout45/git-github-task1.git (fetch)
+origin	git@github.com:kunalrout45/git-github-task1.git (push)
+
