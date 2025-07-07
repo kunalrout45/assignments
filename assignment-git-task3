@@ -1,0 +1,85 @@
+task3
+
+https://github.com/kunalrout45/git-github-task3
+
+commands:
+---------------------------------------------------------------
+kunal@kunal:~/github/git-github/task3$ ls
+main.txt
+kunal@kunal:~/github/git-github/task3$ git status
+On branch Develop
+nothing to commit, working tree clean
+kunal@kunal:~/github/git-github/task3$ git log --oneline
+04529e7 (HEAD -> Develop, master, F2, F1) main.txt added to master
+kunal@kunal:~/github/git-github/task3$ git branch
+* Develop
+  F1
+  F2
+  master
+kunal@kunal:~/github/git-github/task3$ git history
+git: 'history' is not a git command. See 'git --help'.
+kunal@kunal:~/github/git-github/task3$ git log --oneline --graph
+* 04529e7 (HEAD -> Develop, master, F2, F1) main.txt added to master
+kunal@kunal:~/github/git-github/task3$ touch develop.txt ;git add develop.txt ; git commit -m 'develop.txt added to Develop'
+[Develop 9347d48] develop.txt added to Develop
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 develop.txt
+kunal@kunal:~/github/git-github/task3$ git log --oneline --graph
+* 9347d48 (HEAD -> Develop) develop.txt added to Develop
+* 04529e7 (master, F2, F1) main.txt added to master
+kunal@kunal:~/github/git-github/task3$ git checkout F1 ; touch f1.txt ; git add f1.txt ; git commit -m 'f1.txt added to F1' ;git log --oneline --graph
+Switched to branch 'F1'
+[F1 4db3648] f1.txt added to F1
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 f1.txt
+* 4db3648 (HEAD -> F1) f1.txt added to F1
+* 04529e7 (master, F2) main.txt added to master
+kunal@kunal:~/github/git-github/task3$ git log --oneline --graph --decorate
+* 4db3648 (HEAD -> F1) f1.txt added to F1
+* 04529e7 (master, F2) main.txt added to master
+kunal@kunal:~/github/git-github/task3$ git checkout F2 ; touch f2.txt ; git add f2.txt ; git commit -m 'f2.txt added to F2' ;git log --oneline --graph
+Switched to branch 'F2'
+[F2 5deff9b] f2.txt added to F2
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 f2.txt
+* 5deff9b (HEAD -> F2) f2.txt added to F2
+* 04529e7 (master) main.txt added to master
+kunal@kunal:~/github/git-github/task3$ git checkout master
+kunal@kunal:~/github/git-github/task3$ git remote -v
+kunal@kunal:~/github/git-github/task3$ git remote add origin git@github.com:kunalrout45/git-github-task3.git
+kunal@kunal:~/github/git-github/task3$ git remote -v
+origin	git@github.com:kunalrout45/git-github-task3.git (fetch)
+origin	git@github.com:kunalrout45/git-github-task3.git (push)
+kunal@kunal:~/github/git-github/task3$ git checkout master;
+Switched to branch 'master'
+kunal@kunal:~/github/git-github/task3$ git branch -M main
+kunal@kunal:~/github/git-github/task3$ git branch
+  Develop
+  F1
+  F2
+* main
+kunal@kunal:~/github/git-github/task3$ git push --all origin
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (10/10), 843 bytes | 281.00 KiB/s, done.
+Total 10 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), done.
+To github.com:kunalrout45/git-github-task3.git
+ * [new branch]      Develop -> Develop
+ * [new branch]      F1 -> F1
+ * [new branch]      F2 -> F2
+ * [new branch]      main -> main
+kunal@kunal:~/github/git-github/task3$ git branch -D F2
+Deleted branch F2 (was 5deff9b).
+kunal@kunal:~/github/git-github/task3$ git push --all origin
+Everything up-to-date
+kunal@kunal:~/github/git-github/task3$ git push origin --delete F2
+To github.com:kunalrout45/git-github-task3.git
+ - [deleted]         F2
+kunal@kunal:~/github/git-github/task3$ git branch -r
+  origin/Develop
+  origin/F1
+  origin/main
+
